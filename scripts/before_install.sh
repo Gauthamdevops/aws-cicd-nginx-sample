@@ -11,3 +11,9 @@ if ! command -v nginx > /dev/null 2>&1; then
 else
     echo "Nginx is already installed."
 fi
+
+# Remove the existing index.html before the deployment
+if [ -f /var/www/html/index.html ]; then
+  rm -f /var/www/html/index.html
+fi
+
