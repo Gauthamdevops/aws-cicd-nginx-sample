@@ -16,15 +16,15 @@ if systemctl is-active --quiet nginx; then
 fi
 
 # Try to start Nginx
-sudo systemctl start nginx
+systemctl start nginx
 if [ $? -eq 0 ]; then
     log "Nginx started successfully."
 else
     log "Failed to start Nginx."
     log "Checking Nginx status..."
-    sudo systemctl status nginx.service >> $LOG_FILE 2>&1
+    systemctl status nginx.service >> $LOG_FILE 2>&1
     log "Checking Nginx logs..."
-    sudo journalctl -xeu nginx.service >> $LOG_FILE 2>&1
+    journalctl -xeu nginx.service >> $LOG_FILE 2>&1
     exit 1
 fi
 
