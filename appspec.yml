@@ -2,14 +2,26 @@ version: 0.0
 os: linux
 files:
   - source: /index.html
-    destination: /var/www/html/index.html
+    destination: /var/www/html/
 hooks:
   BeforeInstall:
     - location: scripts/before_install.sh
       timeout: 300
+      runas: root
   AfterInstall:
     - location: scripts/after_install.sh
       timeout: 300
+      runas: root
+  ApplicationStart:
+    - location: scripts/start_nginx.sh
+      timeout: 300
+      runas: root
+  ApplicationStop:
+    - location: scripts/stop_nginx.sh
+      timeout: 300
+      runas: root
   ValidateService:
     - location: scripts/validate.sh
       timeout: 300
+      runas: root
+
