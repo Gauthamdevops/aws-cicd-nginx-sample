@@ -1,9 +1,11 @@
 #!/bin/bash
-curl -f http://localhost > /dev/null
-if [ $? -ne 0 ]; then
-  echo "Nginx is not running!"
-  exit 1
-else
-  echo "Nginx is running!"
-fi
+# validate.sh
 
+# Check if Nginx is running
+if systemctl is-active --quiet nginx; then
+    echo "Nginx is running successfully."
+    exit 0
+else
+    echo "Nginx is not running. Deployment failed."
+    exit 1
+fi
