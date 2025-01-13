@@ -7,8 +7,6 @@ sudo yum update -y
 # Install Nginx if not already installed
 if ! command -v nginx > /dev/null 2>&1; then
     echo "Nginx not found. Installing..."
-    sudo amazon-linux-extras enable nginx1.12
-    sudo amazon-linux-extras install nginx1.12 -y
     sudo yum install nginx -y
 else
     echo "Nginx is already installed."
