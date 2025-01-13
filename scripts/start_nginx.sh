@@ -1,24 +1,32 @@
 #!/bin/bash
 
-# Log file for troubleshooting
 LOG_FILE="/var/log/nginx/start_nginx.log"
 
-# Start Nginx and log the output
-echo "Starting Nginx..." >> $LOG_FILE
-sudo systemctl start nginx >> $LOG_FILE 2>&1
+# Log function
+log() {
+    echo "$(date) - $1" >> $LOG_FILE
+}
 
-# Check if Nginx started successfully
+log "Starting Nginx..."
+
+# Ensure that Nginx is not already running
 if systemctl is-active --quiet nginx; then
-    echo "Nginx started successfully" >> $LOG_FILE
+    log "Nginx is already running."
+    exit 0
+fi
+
+# Try to start Nginx
+sudo systemctl start nginx
+if [ $? -eq 0 ]; then
+    log "Nginx started successfully."
 else
-    echo "Failed to start Nginx" >> $LOG_FILE
-    # Log detailed status and journal logs
-    echo "Nginx service status:" >> $LOG_FILE
+    log "Failed to start Nginx."
+    log "Checking Nginx status..."
     sudo systemctl status nginx.service >> $LOG_FILE 2>&1
-    echo "Nginx service logs:" >> $LOG_FILE
+    log "Checking Nginx logs..."
     sudo journalctl -xeu nginx.service >> $LOG_FILE 2>&1
     exit 1
 fi
 
-echo "Nginx started successfully" >> $LOG_FILE
+log "Nginx started successfully."
 
