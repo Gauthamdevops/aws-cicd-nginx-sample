@@ -1,7 +1,6 @@
 #!/bin/bash
 # before_install.sh
 
-# Update the system
 
 sudo yum update -y
 
