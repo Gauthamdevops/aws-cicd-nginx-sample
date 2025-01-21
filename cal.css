@@ -1,0 +1,104 @@
+body{
+    margin:0;
+    padding: 0;
+    line-height: 0.5;
+    font-family: montserrat;
+    background: linear-gradient(120deg,#d6dde2, #393839);
+    height: 100vh;
+    overflow: hidden;
+
+}
+.calci{
+    width: 500px;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    position: absolute;
+    top:50%;
+    left:70%;
+    transform: translate(-50%,-50%);
+    background: linear-gradient(120deg,#2cec9f, #dd146b);
+    border-radius: 10px;
+    transition: 0.25px;
+    
+    text-align: center;
+}
+#display{
+    border: none;
+    background: whitesmoke;
+    border-radius: 30px;
+    width:245;
+    font-size: 20;
+    font-family: sans-serif;
+    font-weight: 300;
+    height: 60;
+    text-align: center;
+    margin: auto;
+    border: 2px solid salmon;
+    color: black;
+    transform: translateY(-50%);
+}
+.btnDesign{
+    width: 55;
+    height: 55;
+    padding-top: -1;
+    background-color: aliceblue;
+    border: none;
+    font-family: sans-serif;
+    font-size: 20;
+    font-weight: 300;
+    border-radius: 1.5;
+}
+.btnDesign:hover{
+    background: rgb(230, 245, 26);
+}
+.operatorDesign{
+    width: 55;
+    height: 55;
+    background: wheat;
+    padding-top: -1;
+    border: none;
+    font-family: sans-serif;
+    font-size: 20;
+    font-weight: 300;
+    border-radius: 1.5;
+    transition: 0.25px;
+    cursor:pointer;
+}
+.operatorDesign:hover{
+    background: rgb(9, 222, 233);
+}
+#Zero{
+    width: 326;
+    height: 55;
+    background: rgb(235, 174, 60);
+    padding-top: -1;
+    border: none;
+    font-family: sans-serif;
+    font-size: 20;
+    font-weight: 300;
+    border-radius: 30px;
+    margin: 1.5;
+    background-color: beige;
+    transition: 0.25px;
+    cursor:pointer;
+}
+h1{
+    margin-top: 300px;
+    margin-left: 100px;
+    text-transform: uppercase;
+    font-family: sans-serif;
+    font-weight: 700px;
+    text-decoration: underline;
+   
+
+}
+h2{
+    margin-top: 200px;
+    margin-left: 100px;
+    text-transform: uppercase;
+    font-family: sans-serif;
+    font-weight: 500px;
+    text-decoration: underline;
+    transform: translateY(-1500%);
+    color: #d40606;
+}
